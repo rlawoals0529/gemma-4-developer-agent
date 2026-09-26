@@ -37,6 +37,19 @@ uncertainty:
 Atlas is a candidate, not a claimed improvement. Its score belongs here only after official
 evaluation.
 
+The exact candidate bundle lives under [`submission/`](submission/), not only inside a notebook.
+That makes prompt and config changes normal git diffs.
+
+## Build the submission
+
+```bash
+python scripts/package_submission.py
+```
+
+That writes `submission.zip` with the contents of `submission/` at the archive root and fails if
+one of the required Atlas files is missing. The current bundle packages nine files and has been
+smoke-tested locally before being committed here.
+
 ## Why this repository exists
 
 The competition is useful because the result is external. A prompt can sound disciplined while
@@ -44,7 +57,8 @@ solving nothing. Here I can keep the prompt, configuration, submission bundle, e
 and official score beside one another.
 
 [`experiments/`](experiments/) records each version, what changed, what I expected, what actually
-happened and whether the idea stayed.
+happened and whether the idea stayed. The v0.1 control, Prime architecture jump, and Atlas redesign
+are recorded separately rather than flattened into one final story.
 
 ## Harness constraints that shape the design
 
@@ -60,5 +74,6 @@ Competition: [Google - The Gemma 4 Developer Agent Competition](https://www.kagg
 
 ## Status
 
-The v0.1 baseline is measured. Atlas v2.0 is packaged and ready for the next official run. The
-next useful commit should contain a result, a reproduced failure, or a change tied to one of those.
+The v0.1 baseline is measured. Atlas v2.0 is committed as an inspectable submission bundle and is
+ready for the next official run. The next useful change should contain a result, a reproduced
+failure, or a modification tied to one of those.
