@@ -1,0 +1,21 @@
+name: jagent_atlas
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Adaptive evidence-first SWE agent with progressive-disclosure skills and optional fresh-context verification.
+instruction: !include prompts/system.md
+generate_content_config: !include configs/sampling.yaml
+skills:
+  - skills/deep-localization
+  - skills/hard-debug
+tools:
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - search_similar_code
+  - get_code_neighbors
+  - get_code_subgraph
+  - get_status
+  - submit_patch
+  - agent_tool:
+      config_path: sub_agents/patch_critic.yaml
+      skip_summarization: true

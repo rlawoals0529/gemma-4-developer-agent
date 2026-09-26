@@ -1,0 +1,13 @@
+name: patch_critic
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Optional fresh-context correctness critic for uncertain or multi-file candidate patches. Read-only and evidence-driven; use only when the root agent's final confidence is not already high.
+instruction: !include prompts/critic.md
+include_contents: none
+generate_content_config: !include configs/critic_sampling.yaml
+tools:
+  - run_command
+  - read_file
+  - search_similar_code
+  - get_code_neighbors
+  - get_code_subgraph
+  - get_status

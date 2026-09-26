@@ -1,0 +1,9 @@
+# JAgent Atlas v2.0
+# Gemma 4 model-card defaults for sampling, with thinking explicitly enabled.
+temperature: 1.0
+top_p: 0.95
+top_k: 64
+max_output_tokens: 16384
+seed: 7
+thinking_config:
+  include_thoughts: true
