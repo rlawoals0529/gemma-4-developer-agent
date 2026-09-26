@@ -1,0 +1,19 @@
+# generated submissions
+submission.zip
+/submission_build/
+/outputs/
+
+# model weights stay out of git
+*.safetensors
+*.bin
+
+# notebooks and Python
+.ipynb_checkpoints/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# local environment
+.env
+.DS_Store
